@@ -49,7 +49,9 @@ public class BookControllerTest {
         BookResponse response = new BookResponse(
                 1L,
                 "Clean Code",
-                "Robert Martin"
+                "Robert Martin",
+                3,
+                3
         );
 
         when(bookService.getBookById(1L))
@@ -105,7 +107,7 @@ public class BookControllerTest {
         request.setAuthor("Robert Martin");
 
         BookResponse response =
-                new BookResponse(1L, "Clean Code", "Robert Martin");
+                new BookResponse(1L, "Clean Code", "Robert Martin", 3,3);
 
         when(bookService.addBook(any(BookRequest.class)))
                 .thenReturn(response);
@@ -131,7 +133,7 @@ public class BookControllerTest {
     void shouldUpdateBook() throws Exception {
 
         BookResponse response =
-                new BookResponse(1L, "Effective Java", "Joshua Bloch");
+                new BookResponse(1L, "Effective Java", "Joshua Bloch", 3, 3);
 
         when(bookService.updateBook(
                 eq(1L),
