@@ -13,6 +13,8 @@ public class BookRequest {
     @Size(min = 2, max = 50, message = "Author must be between 2 and 50 characters")
     private String author;
 
+    private Integer totalCopies;
+
     public String getTitle() {
         return title;
     }
@@ -27,5 +29,13 @@ public class BookRequest {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public Integer getTotalCopies() {
+        return totalCopies;
+    }
+
+    public void setTotalCopies(Integer totalCopies) {
+        this.totalCopies = totalCopies;
     }
 }

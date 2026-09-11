@@ -35,7 +35,9 @@ public class BookService {
                 .map(book -> new BookResponse(
                         book.getId(),
                         book.getTitle(),
-                        book.getAuthor()))
+                        book.getAuthor(),
+                        book.getTotalCopies(),
+                        book.getAvailableCopies()))
                 .toList();
     }
 
@@ -44,6 +46,9 @@ public class BookService {
         Book book = new Book();
         book.setAuthor(request.getAuthor());
         book.setTitle(request.getTitle());
+        book.setTotalCopies(request.getTotalCopies());
+        book.setAvailableCopies(request.getTotalCopies());
+
         Book savedBook = bookRepository.save(book);
 
         BookResponse bookResponse = new BookResponse();
@@ -51,6 +56,8 @@ public class BookService {
         bookResponse.setId(savedBook.getId());
         bookResponse.setTitle(savedBook.getTitle());
         bookResponse.setAuthor(savedBook.getAuthor());
+        bookResponse.setTotalCopies(savedBook.getTotalCopies());
+        bookResponse.setAvailableCopies(savedBook.getAvailableCopies());
 
         return bookResponse;
     }
@@ -63,7 +70,9 @@ public class BookService {
         return new BookResponse(
                 book.getId(),
                 book.getTitle(),
-                book.getAuthor()
+                book.getAuthor(),
+                book.getTotalCopies(),
+                book.getAvailableCopies()
         );
     }
 
@@ -81,6 +90,8 @@ public class BookService {
         bookResponse.setId(savedBook.getId());
         bookResponse.setTitle(savedBook.getTitle());
         bookResponse.setAuthor(savedBook.getAuthor());
+        bookResponse.setTotalCopies(savedBook.getTotalCopies());
+        bookResponse.setAvailableCopies(savedBook.getAvailableCopies());
 
         return bookResponse;
 
@@ -137,7 +148,9 @@ public class BookService {
         return books.map(book -> new BookResponse(
                 book.getId(),
                 book.getTitle(),
-                book.getAuthor()
+                book.getAuthor(),
+                book.getTotalCopies(),
+                book.getAvailableCopies()
         ));
     }
 

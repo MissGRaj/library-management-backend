@@ -15,6 +15,8 @@ public class Book {
 
     private String title;
     private String author;
+    private Integer totalCopies;
+    private Integer availableCopies;
 
     public Book(){
 
@@ -49,5 +51,21 @@ public class Book {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public Integer getTotalCopies() {
+        return totalCopies;
+    }
+
+    public void setTotalCopies(Integer totalCopies) {
+        this.totalCopies = totalCopies;
+    }
+
+    public Integer getAvailableCopies() {
+        return availableCopies;
+    }
+
+    public void setAvailableCopies(Integer availableCopies) {
+        this.availableCopies = availableCopies;
     }
 }
