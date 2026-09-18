@@ -4,6 +4,7 @@ import com.example.library_management.dto.request.BookSearchRequest;
 import com.example.library_management.dto.response.BookResponse;
 import com.example.library_management.entity.Book;
 import com.example.library_management.exception.BookNotFoundException;
+import com.example.library_management.exception.InvalidBookCopyCountException;
 import com.example.library_management.exception.InvalidSortFieldException;
 import com.example.library_management.repository.BookRepository;
 import org.springframework.data.domain.Page;
@@ -12,6 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Set;
@@ -76,13 +78,35 @@ public class BookService {
         );
     }
 
+    @Transactional
     public BookResponse updateBook(Long id, BookRequest bookRequest){
 
         Book existingBook = bookRepository.findById(id)
                 .orElseThrow(() ->
-                        new BookNotFoundException("Book Not Found with id " + id));
+                        new BookNotFoundException(
+                                "Book Not Found with id " + id));
+
         existingBook.setTitle(bookRequest.getTitle());
         existingBook.setAuthor(bookRequest.getAuthor());
+
+        int currentlyBorrowed =
+                existingBook.getTotalCopies()
+                        - existingBook.getAvailableCopies();
+
+        int newTotalCopies = bookRequest.getTotalCopies();
+
+        if (newTotalCopies < currentlyBorrowed) {
+            throw new InvalidBookCopyCountException(
+                    "Total copies cannot be less than currently borrowed copies: "
+                            + currentlyBorrowed);
+        }
+
+        existingBook.setTotalCopies(newTotalCopies);
+
+        existingBook.setAvailableCopies(
+                newTotalCopies - currentlyBorrowed
+        );
+
         Book savedBook = bookRepository.save(existingBook);
 
         BookResponse bookResponse = new BookResponse();
@@ -94,7 +118,6 @@ public class BookService {
         bookResponse.setAvailableCopies(savedBook.getAvailableCopies());
 
         return bookResponse;
-
     }
 
     public void deleteBook(Long id){

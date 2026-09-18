@@ -1,6 +1,7 @@
 package com.example.library_management.dto.request;
 
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.*;
 import jakarta.validation.constraints.Size;
 
 public class BookRequest {
@@ -13,6 +14,8 @@ public class BookRequest {
     @Size(min = 2, max = 50, message = "Author must be between 2 and 50 characters")
     private String author;
 
+    @NotNull(message = "Total copies is required")
+    @Min(value = 1, message = "Total copies must be at least 1")
     private Integer totalCopies;
 
     public String getTitle() {
