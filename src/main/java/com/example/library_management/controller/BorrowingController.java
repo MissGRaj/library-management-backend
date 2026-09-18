@@ -4,6 +4,7 @@ import com.example.library_management.dto.request.BorrowingRequest;
 import com.example.library_management.dto.response.BorrowingResponse;
 import com.example.library_management.entity.Borrowing;
 import com.example.library_management.service.BorrowingService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/borrowings")
+@SecurityRequirement(name = "bearerAuth")
 public class BorrowingController {
 
     private final BorrowingService borrowingService;
