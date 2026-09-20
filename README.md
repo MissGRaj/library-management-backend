@@ -141,13 +141,13 @@ The application follows a client-server architecture:
                 ▼              ▼              ▼
         ┌─────────────┐ ┌─────────────┐ ┌─────────────┐
         │  Security   │ │  Services   │ │ Controllers │
-        │ JWT + RBAC  │ │ Business    │ │ REST APIs  │
-        │             │ │ Logic       │ │            │
+        │ JWT + RBAC  │ │ Business    │ │ REST APIs   │
+        │             │ │ Logic       │ │             │
         └─────────────┘ └──────┬──────┘ └─────────────┘
                                │
                                ▼
                     ┌──────────────────────┐
-                    │ Spring Data JPA /   │
+                    │ Spring Data JPA /    │
                     │     Hibernate        │
                     └──────────┬───────────┘
                                │
@@ -155,6 +155,7 @@ The application follows a client-server architecture:
                     ┌──────────────────────┐
                     │    MySQL Database    │
                     └──────────────────────┘
+```
 
 ### Request Flow
 
@@ -187,7 +188,7 @@ User requests to borrow a book
        Return response
 
 
-```markdown
+```
 ### Return Flow
 
 ```text
@@ -204,7 +205,7 @@ User requests to return a book
   Increase available copies
               ↓
        Return response
-
+```
 
 ### Book Copy Management
 
@@ -219,18 +220,19 @@ When a book is borrowed:
 
 ```text
 availableCopies = availableCopies - 1
-
+```
 When a book is returned:
 
 ```text
 availableCopies = availableCopies + 1
+```
 
 
-### 7.2 Borrowing Rules
+### Borrowing Rules
 
 Then:
 
-```markdown
+```
 ### Borrowing Rules
 
 - A user cannot borrow a book when no copies are available.
@@ -239,7 +241,7 @@ Then:
 - A returned borrowing cannot be returned again.
 - Borrowing and return operations automatically update book availability.
 - Borrowings include a due date and overdue status.
-
+```
 ### Role-Based Access
 
 | Operation | Admin | User |
@@ -316,6 +318,7 @@ Validate JWT
 Check User Role
      ↓
 Allow / Reject Request
+```
 
 ## API Documentation
 
@@ -378,6 +381,7 @@ Borrowing
  │ 1
  ▼
 Book
+```
 
 A user can have multiple borrowing records.
 A book can appear in multiple borrowing records over time.
@@ -435,6 +439,7 @@ src/main/java/com/example/library_management/
 │   └── ...
 │
 └── LibraryManagementApplication
+```
 
 ### Layer Responsibilities
 
@@ -452,28 +457,29 @@ src/main/java/com/example/library_management/
 
 ### Login
 
-![Login Page](screenshots/login with wrong password.png)
-![Login Page](screenshots/login.png)
+1. ![Login With Wrong Credentials Page](screenshots/login with wrong password.png)
+
+2. ![Login Page](screenshots/login.png)
 
 ### Register
 
-![Login Page](screenshots/register.png)
+1. ![Register Page](screenshots/register.png)
 
 ### Books
 
-![Books Page](screenshots/view all books.png)
+1. ![Books Page](screenshots/view all books.png)
 
 ### Add / Edit / Search Book
 
-![Add Book](screenshots/add book.png)
-![Edit Book](screenshots/edit book.png)
-![Search Book](screenshots/search book.png)
+1. ![Add Book](screenshots/add book.png)
+2. ![Edit Book](screenshots/edit book.png)
+3. ![Search Book](screenshots/search book.png)
 
 ### My Borrowings
 
-![My Borrowings](screenshots/my-borrowing.png)
-![My Borrowings](screenshots/return.png)
+1. ![My Borrowings](screenshots/my-borrowing.png)
+2. ![My Borrowings](screenshots/return.png)
 
 ### Swagger API Documentation
 
-![Swagger UI](screenshots/swagger.png)
+1. ![Swagger UI](screenshots/swagger.png)
