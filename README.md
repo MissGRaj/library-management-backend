@@ -457,7 +457,7 @@ src/main/java/com/example/library_management/
 
 ### Login
 
-![Login With Wrong Credentials Page](screenshots/login with wrong password.png)
+![Login With Wrong Credentials Page](screenshots/login-with-wrong-password.png)
 ![Login Page](screenshots/login.png)
 
 ### Register
@@ -466,13 +466,13 @@ src/main/java/com/example/library_management/
 
 ### Books
 
-![Books Page](screenshots/view all books.png)
+![Books Page](screenshots/view-all-books.png)
 
 ### Add / Edit / Search Book
 
-![Add Book](screenshots/add book.png)
-![Edit Book](screenshots/edit book.png)
-![Search Book](screenshots/search book.png)
+![Add Book](screenshots/add-book.png)
+![Edit Book](screenshots/edit-book.png)
+![Search Book](screenshots/search-book.png)
 
 ### My Borrowings
 
