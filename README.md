@@ -457,29 +457,28 @@ src/main/java/com/example/library_management/
 
 ### Login
 
-1. ![Login With Wrong Credentials Page](screenshots/login with wrong password.png)
-
-2. ![Login Page](screenshots/login.png)
+![Login With Wrong Credentials Page](screenshots/login with wrong password.png)
+![Login Page](screenshots/login.png)
 
 ### Register
 
-1. ![Register Page](screenshots/register.png)
+![Register Page](screenshots/register.png)
 
 ### Books
 
-1. ![Books Page](screenshots/view all books.png)
+![Books Page](screenshots/view all books.png)
 
 ### Add / Edit / Search Book
 
-1. ![Add Book](screenshots/add book.png)
-2. ![Edit Book](screenshots/edit book.png)
-3. ![Search Book](screenshots/search book.png)
+![Add Book](screenshots/add book.png)
+![Edit Book](screenshots/edit book.png)
+![Search Book](screenshots/search book.png)
 
 ### My Borrowings
 
-1. ![My Borrowings](screenshots/my-borrowing.png)
-2. ![My Borrowings](screenshots/return.png)
+![My Borrowings](screenshots/my-borrowing.png)
+![My Borrowings](screenshots/return.png)
 
 ### Swagger API Documentation
 
-1. ![Swagger UI](screenshots/swagger.png)
+![Swagger UI](screenshots/swagger.png)
