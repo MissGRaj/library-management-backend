@@ -468,10 +468,14 @@ src/main/java/com/example/library_management/
 
 ![Books Page](screenshots/view-all-books.png)
 
-### Add / Edit / Search Book
+### Add Book
 
 ![Add Book](screenshots/add-book.png)
+
+### Edit Book
 ![Edit Book](screenshots/edit-book.png)
+
+### Search Book
 ![Search Book](screenshots/search-book.png)
 
 ### My Borrowings
