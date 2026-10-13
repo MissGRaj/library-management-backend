@@ -80,7 +80,7 @@ and view their borrowing history.
 
 ### Validation & Error Handling
 
-- Request validation using Jakarta Bean Validation
+- Request validation 
 - Global exception handling
 - Structured error responses
 - Meaningful HTTP status codes
@@ -105,8 +105,6 @@ and view their borrowing history.
 
 - React
 - React Router
-- Vite
-- JavaScript
 - CSS
 
 ### Deployment & Tools
@@ -114,7 +112,7 @@ and view their borrowing history.
 - Docker
 - Railway
 - Vercel
-- Swagger / OpenAPI
+- Swagger 
 - Git
 - GitHub
 
